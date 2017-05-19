@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>SPA</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/header_footer.css">
+	<link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/vue-resource.js"></script>
+	<script type="text/javascript" src="js/vue-router.js"></script>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<router-view></router-view>
+		<footer-bar></footer-bar>
+	</div>
+	<script type="x-template" id="indexPage">
+		<div>
+			<head-nav></head-nav>
+		    <swiper-banner></swiper-banner>
+		    <div class="top-news">
+		        <div class="news-logo">
+		            <img src="img/news_logo.png" alt="">
+		        </div>
+		        <a href="#" class="news-title ellipsis">
+		            <span>|</span>
+		            出行新玩物，米家电动滑板车开箱
+		        </a>
+		    </div>
+		    <div id="product">
+		        <section>
+		            <div class="head-product">
+		                <a href="#">
+		                    <img src="img/p1.jpg" alt="">
+		                </a>
+		            </div>
+		            <ul class="product-list">
+		                <li>
+		                    <a href="">
+		                        <div>
+		                            <img src="img/p2.jpg" alt="">
+		                        </div>
+		                        <div class="tips">
+		                            <h2 class="ellipsis">小米手环2</h2>
+		                            <p class="sub-title ellipsis">OLED 显示屏，触摸操作</p>
+		                            <p class="price">&yen; 149</p> 
+		                        </div> 
+		                    </a>
+		                </li>
+		                <li>
+		                    <a href="">
+		                        <div>
+		                            <img src="img/p2.jpg" alt="">
+		                        </div>
+		                        <div class="tips">
+		                            <h2 class="ellipsis">小米手环2</h2>
+		                        <p class="sub-title ellipsis">OLED 显示屏，触摸操作</p>
+		                        <p class="price">&yen; 149</p> 
+		                        </div> 
+		                    </a>
+		                </li>
+		                <li>
+		                    <a href="">
+		                        <div>
+		                            <img src="img/p2.jpg" alt="">
+		                        </div>
+		                        <div class="tips">
+		                            <h2 class="ellipsis">小米手环2</h2>
+		                        <p class="sub-title ellipsis">OLED 显示屏，触摸操作</p>
+		                        <p class="price">&yen; 149</p> 
+		                        </div> 
+		                    </a>
+		                </li>
+		                <li>
+		                    <a href="">
+		                        <div>
+		                            <img src="img/p2.jpg" alt="">
+		                        </div>
+		                        <div class="tips">
+		                            <h2 class="ellipsis">小米手环2</h2>
+		                        <p class="sub-title ellipsis">OLED 显示屏，触摸操作</p>
+		                        <p class="price">&yen; 149</p> 
+		                        </div> 
+		                    </a>
+		                </li>
+		            </ul>
+		        </section>
+		    </div>
+		    <go-top></go-top>
+	    </div>
+	</script>
+	<script type="x-template" id="categoryPage">
+		<div>
+			<div id="category" class="top-banner">
+		        <header>
+		            <a href="#" class="back-btn">
+		                <i class="iconfont icon-back"></i>
+		            </a>
+		            <h2>
+		                商品分类
+		            </h2>
+		            <a href="#">
+		                <i class="iconfont icon-search"></i>
+		            </a>
+		        </header>
+		        <nav class="product-category">
+		            <div class="product-category-wrapper">
+		                <div class="nav-info">
+		                    <a class="active">手机·电话卡</a>
+		                    <a>笔记本·平板</a>
+		                    <a>电视·盒子</a>
+		                    <a>智能硬件·路由器</a>
+		                    <a>移动电源·插线板·电池</a>
+		                    <a>耳机·音响·存储卡</a>
+		                </div>
+		            </div>
+		        </nav>
+		        <div id="infoList">
+		            <section>
+		                <div class="channel-banner">
+		                    <a href="###">
+		                        <img src="img/active/p3.jpg" alt="">
+		                    </a>
+		                </div>
+		                <h2 class="category-title">手机·电话卡</h2>
+		                <product-list></product-list>
+		            </section>
+		            <section>
+		                <div class="channel-banner">
+		                    <a href="###">
+		                        <img src="img/active/p3.jpg" alt="">
+		                    </a>
+		                </div>
+		                <h2 class="category-title">手机·电话卡</h2>
+		                <ul class="list-wrap">
+		                    <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                     <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                     <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                     <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                </ul>
+		            </section>
+		            <section>
+		                <div class="channel-banner">
+		                    <a href="###">
+		                        <img src="img/active/p3.jpg" alt="">
+		                    </a>
+		                </div>
+		                <h2 class="category-title">手机·电话卡</h2>
+		                <ul class="list-wrap">
+		                    <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                     <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                     <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                     <li>
+		                        <a href="#">
+		                            <img src="img/active/product1.jpg" alt="">
+		                            <p>笔记本12.5"</p> 
+		                        </a>
+		                    </li>
+		                </ul>
+		            </section>
+		        </div>
+		    </div>
+		</div>
+	</script>
+	<script type="x-template" id="cartPage">
+		<div>
+			<div class="top-banner">
+		        <header>
+		            <a href="#" class="back-btn">
+		                <i class="iconfont icon-back"></i>
+		            </a>
+		            <h2>
+		                购物车
+		            </h2>
+		            <a href="#">
+		                <i class="iconfont icon-search"></i>
+		            </a>
+		        </header>
+		    </div>
+		    <div class="nologin">
+		        <a href="###">
+		            <span>登录后享受更多优惠</span>
+		            <em>去登录<i class="iconfont icon-more"></i></em>
+		        </a>
+		    </div>
+		    <div class="noitem">
+		        <a href="###">
+		            <span>购物车还是空的</span>
+		            <em>去逛逛</em>
+		        </a>
+		    </div>
+		    <div id="recomment">
+		        <h2>为你推荐</h2>
+		        <ul class="recomment-list">
+		            <li>
+		                <a href="###">
+		                    <img src="img/p2.jpg" alt="">
+		                    <div class="info">
+		                        <p>米家压力IH电饭煲</p> 
+		                        <strong class="price">
+		                            &yen;999
+		                        </strong>
+		                    </div>
+		                </a>
+		            </li>
+		            <li>
+		                <a href="###">
+		                    <img src="img/p2.jpg" alt="">
+		                    <div class="info">
+		                        <p>米家压力IH电饭煲</p> 
+		                        <strong class="price">
+		                            &yen;999
+		                        </strong>
+		                    </div>
+		                </a>
+		            </li>
+		            <li>
+		                <a href="###">
+		                    <img src="img/p2.jpg" alt="">
+		                    <div class="info">
+		                        <p>米家压力IH电饭煲</p> 
+		                        <strong class="price">
+		                            &yen;999
+		                        </strong>
+		                    </div>
+		                </a>
+		            </li>
+		            <li>
+		                <a href="###">
+		                    <img src="img/p2.jpg" alt="">
+		                    <div class="info">
+		                        <p>米家压力IH电饭煲</p> 
+		                        <strong class="price">
+		                            &yen;999
+		                        </strong>
+		                    </div>
+		                </a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+	</script>
+	<script type="x-template" id="userPage">
+		<div>
+			<header class="user-info">
+		        <a href="###">
+		            <div class="user-logo">
+		                <img src="img/user_logo.png" alt="">
+		            </div>
+		            <span>登录/注册</span>
+		        </a>
+		    </header>
+		    <div class="order-box">
+		        <a href="###" class="my-order">
+		            <span>我的订单</span>
+		            <span>全部订单 <i class="iconfont icon-more"></i></span>
+		        </a>
+		        <nav class="nav-order">
+		            <a href="###">
+		                <i class="iconfont icon-yijianfankui"></i>
+		                <p>待付款</p>
+		            </a>
+		             <a href="###">
+		                <i class="iconfont icon-wodedingdan"></i>
+		                <p>待收货</p>
+		            </a>
+		             <a href="###">
+		                <i class="iconfont icon-auto"></i>
+		                <p>退换修</p>
+		            </a>
+		        </nav>
+		        <ul class="order-list">
+		            <li class="o-list-1">
+		                <a href="###">
+		                     <i class="iconfont icon-discount"></i>
+		                     <span>我的优惠</span>
+		                     <i class="iconfont icon-more"></i>
+		                </a>
+		            </li>
+		        </ul>
+		        <ul class="order-list">
+		            <li class="o-list-2">
+		                <a href="###">
+		                     <i class="iconfont icon-favorites"></i>
+		                     <span>服务中心</span>
+		                     <i class="iconfont icon-more"></i>
+		                </a>
+		            </li>
+		            <li class="o-list-3">
+		                <a href="###">
+		                     <i class="iconfont icon-home"></i>
+		                     <span>小米之家</span>
+		                     <i class="iconfont icon-more"></i>
+		                </a>
+		            </li>
+		        </ul>
+		        <ul class="order-list">
+		            <li class="o-list-4">
+		                <a href="###">
+		                     <i class="iconfont icon-set"></i>
+		                     <span>设置</span>
+		                     <i class="iconfont icon-more"></i>
+		                </a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+	</script>
+	<script type="x-template" id="searchPage">
+		<div>
+			<header id="serachBar">
+		        <nav>
+		            <a href="/index">
+		                <i class="iconfont icon-shouye"></i>
+		            </a>
+		            <input type="text">
+		            <a href="/">
+		                <i class="iconfont icon-search"></i>
+		            </a>
+		        </nav>
+		    </header>
+		    <div id="hotSearch">
+		        <ul>
+		            <li>
+		                <a href="###">小米MIX</a>
+		            </li>  
+		            <li>
+		                <a href="###">红米4超长续航</a>
+		            </li>
+		            <li>
+		                <a href="###">小米Note 2</a>
+		            </li>
+		            <li>
+		                <a href="###">小米5s</a>
+		            </li>
+		            <li>
+		                <a href="###">笔记本</a>
+		            </li>
+		            <li>
+		                <a href="###">小米电视3s</a>
+		            </li>
+		            <li>
+		                <a href="###">智能电饭煲</a>
+		            </li>
+		        </ul>
+		    </div>
+		    <div id="searchResult">
+		        <ul>
+		            <li>
+		                <a href="###">小米手机Note 2</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机5</a>
+		            </li>
+		            <li>
+		                <a href="###">小米Max</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机Note 2</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机5</a>
+		            </li>
+		            <li>
+		                <a href="###">小米Max</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机Note 2</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机5</a>
+		            </li>
+		            <li>
+		                <a href="###">小米Max</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机Note 2</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机5</a>
+		            </li>
+		            <li>
+		                <a href="###">小米Max</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机Note 2</a>
+		            </li>
+		            <li>
+		                <a href="###">小米手机5</a>
+		            </li>
+		            <li>
+		                <a href="###">小米Max</a>
+		            </li>
+		        </ul>
+		    </div>
+		</div>
+	</script>
+	<script type="text/javascript">
+		var IndexPage={
+			template: "#indexPage"
+		};
+		var CategoryPage={
+			template: "#categoryPage"
+		};
+		var CartPage={
+			template: "#cartPage"
+		};
+		var UserPage={
+			template: "#userPage"
+		};
+		var SearchPage={
+			template: "#searchPage"
+		}
+
+		//首页组件:点击返回顶部////////////////////////////////////////////////////////////
+		Vue.component("go-top",{
+			template: '<a href="javascript:void(0);" v-on:click="goTop" id="goTop"><img src="img/go_top.png" alt=""></a>',
+			methods: {
+				goTop: function(){
+					document.documentElement.scrollTop=document.body.scrollTop=0;
+					// window.scrollTo(0,0);
+				}
+			}
+		})
+		//页脚组件/////////////////////////////////////////////////////////////////////////
+		Vue.component("footer-bar",{
+			template: `<footer id="footer">
+						<ul>
+							<li v-for="(item,index) in footerList" v-bind:class="['foo-icon-'+(index+1),{active: $route.path===item.path}]">
+								<router-link :to="item.path">{{ item.text }}</router-link>
+							</li>
+						</ul>
+					</footer>`,
+			data: function(){
+				return {
+					footerList: [{
+						path: "/",
+						text: "首页"
+					},{
+						path: "/category",
+						text: "分类"
+					},{
+						path: "/cart",
+						text: "购物车"
+					},{
+						path: "/user",
+						text: "我的"
+					}]
+				}
+			}
+		})
+		//首页组件:焦点图//////////////////////////////////////////////////////////////////
+		Vue.component("swiper-banner",{
+			template: `<div class="swiper-container">
+				        <div class="swiper-wrapper">
+				            <a href="javascript:void;" class="swiper-slide" v-for="item in bannerList">
+				            	<img v-bind:src="item.src" alt="">
+				            </a>
+				        </div>
+				        <div class="swiper-pagination"></div>
+				    </div>`,
+			data: function(){
+				return {
+					bannerList: [{
+						title: "",
+						href: "",
+						src: "img/1.jpg" 
+					},{
+						title: "",
+						href: "",
+						src: "img/2.jpg" 
+					}]
+				}
+			},
+			methods: {
+				init: function(){
+					var navSwiper = new Swiper(".swiper-container", {
+			            pagination: ".swiper-pagination",
+			            loop: true
+			        })
+				}
+			},
+			mounted: function(){
+				this.init();
+			}
+		})
+		//头部导航组件/////////////////////////////////////////////////////////////////////
+		Vue.component("head-nav",{
+			template: `<header id="headerNav">
+				        <div class="logo">
+				            <img src="img/logo.png" alt="">
+				        </div>
+				        <router-link to="/search" class="search-bar">
+				            <input type="text" placeholder="搜索商品名称">
+				        </router-link>
+				        <a href="#" class="login">登录</a>
+				    </header>`,
+		})
+		//首页组件:商品列表////////////////////////////////////////////////////////////////
+		Vue.component("product-list",{
+			template: `<ul class="product-list" 
+						v-for="item in productList"
+					    v-if="item.view_type === 'list_two_type1'">
+					    <li v-for="initem in item.body.items">
+					       	<router-link :to="'/product/'+initem.product_id">
+					            <div>
+					                <img :src="initem.img_url" alt="">
+					            </div>
+					            <div class="tips">
+					                <h2 class="ellipsis">{{ initem.product_name }}</h2>
+					                <p class="sub-title ellipsis">{{ initem.product_brief }}</p>
+					                <p class="price">&yen; {{initem.product_price }}</p> 
+					            </div> 
+					        <router-link>
+					    </li>
+					</ul>`,
+			data: function(){
+				return {
+					product: []
+				}
+			},
+			methods: {
+				getData: function(){
+					this.$http.get("json/home.index.json").then(function(response){
+						this.productLaist=response.body.data.sections;
+						console.log(response);
+					})
+				}
+			},
+			created: function(){
+				this.getData();
+			}
+		})
+		var routes=[{
+			path: "/",
+			component: IndexPage,
+		},{
+			path: "/category",
+			component: CategoryPage,
+		},{
+			path: "/cart",
+			component: CartPage,
+		},{
+			path: "/user",
+			component: UserPage,
+		},{
+			path: "/search",
+			component: SearchPage,
+		}]
+
+		var router=new VueRouter({
+			routes:routes,
+		})
+		var vm=new Vue({
+			el: "#app",
+			router:router,
+		})
+	</script>
+</body>
+</html>

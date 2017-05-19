@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todolise 组件</title>
+	<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<todo-list></todo-list>
+		<todo-list></todo-list>
+		<todo-list></todo-list>
+		<todo-list></todo-list>
+	</div>
+	<script type="text/javascript">
+		Vue.component("todo-list",{
+			template: `<div>
+						   <input type="text" v-model="todo" v-on:keydown.13="add"><button v-on:click="add">发布</button>
+						   <ol>
+							   <li v-for="(item,index) in todolist">{{item}}
+								   <button v-on:click="remove(index)">×</button>
+							   </li>
+						   </ol>
+					   </div>`,
+			data: function(){
+				return {
+					todo: "",
+					todolist: [],
+				}
+			},
+			methods: {
+				add: function(){
+					if(this.todo.trim()) this.todolist.unshift(this.todo.trim());
+					this.todo="";
+				},
+				remove: function(index){
+					this.todolist.splice(index,1);
+				}
+			}
+		})
+
+		var vm=new Vue({
+			el: "#app",
+		})
+
+	</script>
+</body>
+</html>

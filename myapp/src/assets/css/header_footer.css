@@ -1,0 +1,122 @@
+
+.top-banner header {
+    display: flex;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #d9d9d9;
+    background: #f5f5f5;
+}
+.top-banner header h2 {
+    flex: 1;
+    text-align: center;
+    line-height: 45px;
+}
+
+.top-banner header > a {
+    padding: 6px 10px;
+    color: #999;
+    font-size: 1.4rem;
+}
+.top-banner header > a .iconfont {
+    font-size: 2.2rem;
+}
+
+.bottom-banner {
+	height: 48px;
+	margin-top: 4%;
+}
+.bottom-banner > div {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+    display: flex;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #d9d9d9;
+    background: #f5f5f5;
+	padding: 6px 0;
+	border-top: 1px solid #d9d9d9;
+}
+.bottom-banner .buy-btn {
+    flex: 1;
+    text-align: center;
+	background-color: #ff5722;
+	color:#fff;
+	line-height: 47px;
+	border-radius: 4px;
+}
+
+.bottom-banner .back-btn, .bottom-banner .cart-btn  {
+    color: #999;
+    font-size: 1.8rem;
+	padding: 4px 12px;
+}
+.bottom-banner .iconfont {
+    font-size: 2.6rem;
+}
+
+
+/****************************/
+#footer {
+	height: 44px;
+	margin-top: 10px;
+}
+#footer ul {
+	position: fixed;
+	left:0;
+	bottom:0;
+	width:100%;
+	height: 44px;
+	border-top:1px solid #d9d9d9;
+	background-color: #fff;
+    display: flex;
+    font-size: 1.4rem;
+}
+#footer ul li {
+	flex:1;
+	text-align: center;
+}
+#footer ul li a {
+	padding-top: 4px;
+	padding-bottom: 2px;
+	display: block;
+	color:#333;
+}
+#footer ul li a:before {
+	display: block;
+	margin: 0 auto;
+	content:"";
+	width:20px;
+	height: 20px;
+	background: url(../img/spr1.png) no-repeat;
+	background-size: 20px 160px;
+}
+#footer ul .active a {
+    color: #f66b01;
+}
+#footer ul .foo-icon-1 a:before {
+	background-position: center -140px;
+}
+#footer ul .foo-icon-1.active a:before {
+	background-position: center -120px;
+}
+
+#footer ul .foo-icon-2 a:before {
+	background-position: center -59px;
+}
+#footer ul .foo-icon-2.active a:before {
+	background-position: center -40px;
+}
+
+#footer ul .foo-icon-3 a:before {
+	background-position: center -100px;
+}
+#footer ul .foo-icon-3.active a:before {
+	background-position: center -80px;
+}
+
+#footer ul .foo-icon-4 a:before {
+	background-position: center -20px;
+}
+#footer ul .foo-icon-4.active a:before {
+	background-position: center 0;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mvc</title>
+	<style type="text/css">
+		#app div {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			display: none;
+		}
+		.active {
+			background-color: yellow;
+		}
+	</style>
+	<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!-- <button class="active">1</button>
+		<button>2</button>
+		<button>3</button> -->
+		<button v-for="(item,index) in tabList" v-bind:class="{active:index==tabIndex}" v-on:click="tab(index)">{{ index+1 }}</button>
+		<div v-for="(item,index) in tabList" v-bind:style="{display:index==tabIndex?'block':'none'}">{{ item.text }}</div>
+		<span>{{ i+""+j }}</span>
+	</div>
+	<script type="text/javascript">
+		// var vm=new Vue({
+		// 	el: "#app",//挂载的元素，之后的作用域
+		// 	data: {
+		// 		name: "shafee",
+		// 		items: ["A","B","C","D"],
+		// 	}
+		// })
+		 
+		// var vm=new Vue({
+		// 	el: "#app",
+		// 	data: {
+		// 		showFlag: true,
+		// 	},
+		// 	methods: {
+		// 		toggle: function(){
+		// 			vm.showFlag=!vm.showFlag;
+		// 		}
+		// 	}
+		// })
+		
+		var vm=new Vue({
+			el: "#app",
+			data: {
+				i: 10,
+				j: 0,//j==i
+			},
+			methods: {
+				tab: function(index){
+					vm.tabIndex=index;
+				}
+			},
+			created(){
+				this.j=this.i;
+			}
+		})
+
+	</script>
+</body>
+</html>

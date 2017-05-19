@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>大图滚动</title>
+	<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	.wrap {
+		position: relative;
+		width:120px;
+		/*margin:0 auto;*/
+		height: 60px;
+		overflow: hidden;
+	}
+	.wrap:hover .left-arrow,.wrap:hover .right-arrow{
+		/*display: block;*/
+		opacity: 1;
+	}
+	.inner {
+		position: relative;
+		left:0;
+		top:0;
+		width: 9999px;
+		transition: all 0.5s linear;
+	}
+	.inner img{
+		float: left;
+		width:120px;
+		height: 60px;
+		-webkit-user-select:none;
+	}
+	.paganation {
+		position: absolute;
+		bottom:2px;
+		left:0;
+		width:100%;
+		text-align: center;
+		-webkit-user-select:none;
+		font-size: 10px;
+	}
+	.paganation span {
+		display: inline-block;
+		width:10px;
+		height: 10px;
+		text-align: center;
+		line-height: 10px;
+		border-radius: 50%;
+		background-color: #fff;
+		cursor: pointer;
+		margin: 0 1px;
+	}
+	.paganation span.active {
+		background-color: red;
+		color:#fff;
+	}
+	a {
+		text-decoration: none;
+	}
+	.left-arrow {
+		/*display: none;*/
+		opacity: 0;
+		transition:all 1s;
+		position: absolute;
+		font-family: "宋体";
+		left:0;
+		top:0;
+		width:10px;
+		height: 100%;
+		color:#fff;
+		text-align: center;
+		font-size: 10px;
+		line-height: 60px;
+		background-color: rgba(0,0,0,.5);
+		-webkit-user-select:none;
+	}
+	.right-arrow {
+		/*display: none;*/
+		opacity: 0;
+		transition:all 1s;
+		position: absolute;
+		font-family: "宋体";
+		right:0;
+		top:0;
+		width:10px;
+		height: 100%;
+		color:#fff;
+		text-align: center;
+		font-size: 10px;
+		line-height: 60px;
+		background-color: rgba(0,0,0,.5);
+		-webkit-user-select:none;
+	}
+	</style>
+	<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		<picgo v-for="n in 240"></picgo>
+	</div>
+	<script type="text/javascript">
+		Vue.component("picgo",{
+			template:   `<div style="float: left">
+							<div class="wrap" v-on:mouseenter="stopAnim" v-on:mouseleave="autoRun">
+								<div class="inner" v-bind:style="{left:-mark*120+'px'}">
+									<img v-for="item in imgList" v-bind:src="item">
+								</div>
+								<div class="paganation">
+									<span v-for="(item,index) in imgList" v-bind:class="{active:index==mark}" v-on:click="tab(index)">{{ index+1 }}</span>
+								</div>
+								<a class="left-arrow" href="javascript:void(0);" v-on:click="prev">&lt;</a>
+								<a class="right-arrow" href="javascript:void(0);" v-on:click="next">&gt;</a>
+							</div>
+						</div>`,
+			data: function(){
+				return {
+					carid: 0,
+					mark: 0,
+					imgList: ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/6.jpg","img/7.jpg","img/8.jpg"],
+				}
+			},
+			methods: {
+				tab: function(index){
+					this.mark=index;
+				},
+				next: function(){
+					this.mark++;
+					this.mark%=this.imgList.length;
+				},
+				prev: function(){
+					this.mark--;
+					if(this.mark<=0) this.mark=this.imgList.length-1;
+				},
+				autoRun: function(){
+					this.carid=setInterval(this.next,500);
+				},
+				stopAnim: function(){
+					clearInterval(this.carid);
+				}
+			},
+			mounted: function(){
+				this.autoRun();
+			}
+		})
+
+		new Vue({
+			el: "#box",
+		})
+	</script>
+</body>
+</html>

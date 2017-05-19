@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计数器</title>
+	<style>
+		#count {
+			width: 960px;
+			height: 600px;
+			background-color: #ccc;
+			margin: 100px auto 0;
+			text-align: center;
+		}
+		#count p {
+			font-size: 100px;
+			padding: 80px 0 0 0;
+		}
+		#count button {
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			margin: 0 40px;
+			line-height: 200px;
+			font-size: 50px;
+		}
+	</style>
+	<script type="text/javascript" src="./js/vue.js"></script>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		Vue.component("count",{
+			template: `<button>{{ num }}</button>`,
+		})
+		Vue.component("countPanel",{
+			template: `<div id="count">
+						   <p>计数器</p>
+						   <count></count>
+					   </div>`,
+		})
+	</script>
+</body>
+</html>

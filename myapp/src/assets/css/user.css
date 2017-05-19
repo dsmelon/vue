@@ -1,0 +1,93 @@
+.user-info a {
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    background: url(../img/user_bg.png) center 0 #f37d0f;
+    background-size: auto 100%;
+    color: #fff;
+    font-size: 1.4rem;
+}
+.user-info .user-logo {
+    flex-basis: 14%;
+    margin-right: 4%;
+}
+
+.my-order{
+    background-color: #fff;
+    height: 36px;
+    padding: 0 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
+}
+.my-order span:first-child {
+    font-size: 1.4rem;
+    color: #333;
+}
+.my-order span {
+    color: #999;
+    line-height: 24px;
+}
+.my-order span .iconfont {
+    font-size: inherit;
+}
+.nav-order {
+    display: flex;
+    background-color: #fff;    
+}
+.nav-order > a {
+    flex-grow: 1;
+    text-align: center;
+    padding: 5% 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+.nav-order > a  i {
+    font-size: 2rem;
+}
+body {
+    background-color: #f5f5f5;
+}
+.order-list {
+    background-color: #fff;
+    margin: 4% 0;    
+}
+.order-list a {
+    position: relative;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    height: 44px;
+    overflow: hidden;
+}
+.order-list li:first-child a:after {
+    display: none;
+}
+.order-list li a:after {
+    box-sizing: border-box;
+    position: absolute;
+    left: 34px;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #d9d9d9;
+    content:"";
+}
+.order-list a span {
+    flex: 1;
+    margin-left: 10px;
+}
+.o-list-1 .iconfont {
+    color:#51bbe0;
+}
+.o-list-2 .iconfont {
+    color:#f96c5e;
+}
+.o-list-3 .iconfont {
+    color:#ff8b43;
+}
+.o-list-4 .iconfont {
+    color:#a6aeb7;
+}

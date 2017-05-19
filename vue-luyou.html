@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/vue-router.js"></script>
+</head>
+<body>
+	<div id="app">
+		<router-view></router-view>
+		<a href="#/index">首页</a>
+		<router-link to="/list">列表页</router-link>
+	</div>
+	
+	<script type="text/javascript">
+		var Index={
+			template: `<h1>首页</h1>`
+		};
+		var List={
+			template: `<h1>列表页</h1>`
+		};
+		var routes=[{
+			path: "/index",
+			component: Index,
+		},{
+			path: "/list",
+			component: List,
+		}];
+		var router=new VueRouter({
+			routes: routes,
+		});
+
+		var vm=new Vue({
+			el: "#app",
+			router,
+		})
+	</script>
+</body>
+</html>

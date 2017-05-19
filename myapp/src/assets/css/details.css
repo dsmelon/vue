@@ -1,0 +1,84 @@
+.detail-banner {
+    position: absolute;
+    height: 44px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.detail-banner i {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    top: 12px;
+    border-radius: 20px;
+    
+}
+.detail-banner .icon-back {
+    left: 20px;
+    font-size: 1.6rem;
+}
+.detail-banner .icon-search {
+    right: 20px;
+}
+
+.product-info .d-info{
+    padding: 4%;
+}
+.product-info h2 {
+    font-size: 1.6rem;
+    color: #333;
+}
+.product-info .price {
+    color:#ff5722;
+    font-size: 1.8rem;
+}
+.product-info .sub-title {
+    font-size: 1.2rem;
+    color: #999;
+    margin: 2% 0;
+}
+.product-info .tag-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-info .tag-box span{
+    padding: 4px 8px;
+    border: 1px solid #ff5722;
+    color: #666;
+    margin-right:4px;
+}
+
+.product-info .details-box {
+    border-top: 1px solid #d9d9d9;
+}
+.product-info .details-box nav {
+    display: flex;
+}
+.product-info .details-box a {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    height: 44px;
+    line-height: 44px;
+}
+.product-info .details-box a:before {
+    position: absolute;
+    left: 0;
+    height: 24px;
+    top: 10px;
+    content:"";
+    border-left: 1px solid #999;
+    color: #999;
+    font-size: 2.2rem;
+}
+.product-info .details-box .active {
+    color: #ff5722;
+}
+.product-info .details-box a:first-child:before {
+    display: none;
+}

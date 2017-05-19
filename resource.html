@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue resourse</title>
+	<style type="text/css">
+		* {font-family: "Microsoft Yahei"}
+	</style>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/vue-resource.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>豆瓣图书搜索</h1>
+		<input type="text" v-model="keyword" v-on:keydown.13="search"><button v-on:click="search">搜索</button><span>{{ error }}</span>
+		<ol>
+			<li><span>{{}}</span><span>{{}}</span><audio src=""></audio></li>
+		</ol>>
+	</div>
+	<script type="text/javascript">
+	var vm=new Vue({
+		el: "#app",
+		data: {
+			url: "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+			keyword: "",
+			error: "",
+		},
+		methods: {
+			search(){
+				this.$http.get(this.url,{
+					params: {
+						wd: this.keyword,
+					}
+				}).then(function(response){
+					console.log(response.body.split("s:[")[1].substring(1));
+				},function(err){
+					this.error="请求失败";
+				})
+			}
+		}
+	})
+	</script>
+</body>
+</html>

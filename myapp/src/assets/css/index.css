@@ -1,0 +1,152 @@
+#goTop {
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+    width: 50px;
+    height: 50px;
+}
+#headerNav {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    max-width: 720px;
+    top: 0;
+    /*background: red;*/
+    display: flex;
+    height: 44px;
+    line-height: 44px;
+    font-size: 1.6rem;
+}
+#headerNav .logo img{
+    width: 28px;
+    height: 18px;
+    margin-top: 13px;
+}
+
+#headerNav .search-bar {
+    flex: 1;
+}
+#headerNav .logo, #headerNav .login {
+    padding: 0 10px;
+    color:#fff;
+}
+#headerNav .search-bar input {
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    border: none;
+    padding: 6px 8px;
+}
+
+.top-news {
+    display: flex;
+}
+.news-logo {
+    max-width: 78px;
+}
+.news-title {
+    flex: 1;
+    line-height: 39px;
+    font-size: 1.4rem;
+    color:#333;
+}
+.news-title span {
+    margin-right: 4px;
+}
+#product .head-product {
+    overflow: hidden;
+    max-height:320px;
+}
+#product .product-list {
+    margin-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#product .product-list li {
+    /*flex: 1;*/
+    flex-basis: 49.5%;
+}
+#product .product-list li a {
+    display: block;
+}
+#product .product-list .tips {
+    padding:  8px 8%;
+}
+#product .product-list .tips h2 {
+    color:#333;
+    font-size: 1.4rem;
+}
+#product .product-list .tips .sub-title {
+    color:#666;
+    font-size: 1.2rem;
+}
+#product .product-list .tips .price {
+    color:#ff6000;
+    font-size: 1.6rem;
+}
+
+/* search bar */
+#serachBar {
+    height: 46px;
+}
+#serachBar > nav{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: #f5f5f5;
+    display: flex;
+    font-size: 1.6rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+#serachBar input {
+    font-size: 1.4rem;
+    outline: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 3px 8px;
+    color: #333;
+    flex: 1;
+}
+#serachBar nav > a {
+    padding: 0 10px;
+    color: #999;
+    font-size: 1.4rem;
+}
+#serachBar nav > a .iconfont {
+    font-size: 2.2rem;
+}
+
+#hotSearch ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 92%;
+    margin: 4%;
+}
+#hotSearch ul li {
+    padding: 4px 4px;
+}
+#hotSearch ul li a{
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 4px;
+    background-color: rgb(232, 246, 246);
+    border: 1px solid rgb(140, 218, 222);
+}
+
+#searchResult {
+    background: #f5f5f5;
+}
+
+#searchResult li a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 4%;
+    font-size: 1.4rem;
+}
+/* search bar */
