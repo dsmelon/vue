@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪吃蛇</title>
+	<style>
+		#game {
+			margin: 20px auto;
+			border: 1px solid deeppink;
+			position: relative;
+			width: 960px;
+			font-family: "Microsoft Yahei";
+		}
+		#start {
+			width: 320px;
+			height: 60px;
+			font-size: 40px;
+			color: green;
+			position: absolute;
+			left: calc(50% - 160px);
+			top: calc(50% - 30px);
+		}
+		#end {
+			display: none;
+			width: 160px;
+			height: 60px;
+			font-size: 40px;
+			color: green;
+			position: absolute;
+			left: calc(50% - 80px);
+			top: calc(50% - 30px);
+		}
+		#score {
+			font-size: 20px;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		canvas {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="game">
+		<canvas id="canvas" width="960" height="800"></canvas>
+		<div id="start">按方向键开始游戏</div>
+		<div id="end">游戏结束</div>
+		<div id="score"></div>
+	</div>
+	<script type="text/javascript">
+		var canvas=document.getElementById("canvas");
+		var start=document.getElementById("start");
+		var score=document.getElementById("score");
+		var end=document.getElementById("end");
+		var ctx=canvas.getContext("2d");
+		var left=right=up=down=0;//方向计时器
+		var a=37,w=38,d=39,s=40;//方向决定器
+		var grid=40;//蛇节大小
+		var snake=[{},{}];//蛇
+		var speed=500;//速度
+		snake[0].x=rnd(0,960/grid-1)*grid;
+		snake[0].y=rnd(0,800/grid-1)*grid;
+		snake[1].x=snake[0].x-grid;
+		snake[1].y=snake[0].y;
+		function Food(){
+			this.x=rnd(0,960/grid-1)*grid;
+			this.y=rnd(0,800/grid-1)*grid;
+		}
+		var food=new Food();
+		function newfood(){
+			for(var i=0;i<snake.length;i++){
+				if(food.x==snake[i].x && food.y==snake[i].y){
+					food=new Food();
+					newfood();
+				}
+			}
+		}
+		newfood();
+		ctx.fillStyle="red";
+		ctx.fillRect(snake[0].x+=grid,snake[0].y,grid,grid);
+		ctx.fillStyle="blue";
+		ctx.fillRect(snake[1].x+=grid,snake[1].y,grid,grid);
+		ctx.fillStyle="orange";
+		ctx.fillRect(food.x,food.y,grid,grid);
+
+		document.onkeydown=function(e){
+			start.style.display="none";
+			switch(e.keyCode){
+				case a:{
+					clearInterval(left);clearInterval(up);clearInterval(down);
+					snake.unshift({x:snake[0].x-grid,y:snake[0].y});
+					snake.pop();
+					draw();
+					left=setInterval(function(){
+						snake.unshift({x:snake[0].x-grid,y:snake[0].y});
+						snake.pop();
+						draw();
+					},speed)
+					d=1000;w=38;s=40;
+					break;
+				}
+				case w:{
+					clearInterval(left);clearInterval(up);clearInterval(right);
+					snake.unshift({x:snake[0].x,y:snake[0].y-grid});
+					snake.pop();
+					draw();
+					up=setInterval(function(){
+						snake.unshift({x:snake[0].x,y:snake[0].y-grid});
+						snake.pop();
+						draw();
+					},speed)
+					s=1000;a=37;d=39;
+					break;
+				}
+				case d:{
+					clearInterval(up);clearInterval(down);clearInterval(right);
+					snake.unshift({x:snake[0].x+grid,y:snake[0].y});
+					snake.pop();
+					draw();
+					right=setInterval(function(){
+						snake.unshift({x:snake[0].x+grid,y:snake[0].y});
+						snake.pop();
+						draw();
+					},speed)
+					a=1000;w=38;s=40;
+					break;
+				}
+				case s:{
+					clearInterval(left);clearInterval(down);clearInterval(right);
+					snake.unshift({x:snake[0].x,y:snake[0].y+grid});
+					snake.pop();
+					draw();
+					down=setInterval(function(){
+						snake.unshift({x:snake[0].x,y:snake[0].y+grid});
+						snake.pop();
+						draw();
+					},speed)
+					w=1000;a=37;d=39;
+					break;
+				}
+			}
+		}
+		function draw(){
+			ctx.clearRect(0,0,960,800);
+			ctx.fillStyle="orange";
+			ctx.fillRect(food.x,food.y,grid,grid);
+			ctx.fillStyle="blue";
+			for(var i=1;i<snake.length;i++) ctx.fillRect(snake[i].x,snake[i].y,grid,grid);
+			ctx.fillStyle="red";
+			ctx.fillRect(snake[0].x,snake[0].y,grid,grid);
+			if(Math.sqrt(Math.pow(snake[0].x-food.x,2)+Math.pow(snake[0].y-food.y,2))<grid/2){
+				snake.push({x:snake[snake.length-1].x*2-snake[snake.length-2].x,y:snake[snake.length-1].y*2-snake[snake.length-2].y});
+				food=new Food();
+				newfood();
+			}
+		}
+		function rnd(min,max){return Math.round(Math.random()*(max-min)+min);}
+
+		(function crash(){
+			speed=500-snake.length*5;
+			score.innerHTML=snake.length-2;
+			if(snake[0].x<0 || snake[0].x>=canvas.width || snake[0].y<0 || snake[0].y>=canvas.height){
+					clearInterval(left);
+					clearInterval(right);
+					clearInterval(up);
+					clearInterval(down);
+					document.onkeydown=null;
+					end.style.display="block";
+				}
+			for(var i=4;i<snake.length;i++){
+				if(Math.sqrt(Math.pow(snake[0].x-snake[i].x,2)+Math.pow(snake[0].y-snake[i].y,2))<grid/2){
+					clearInterval(left);
+					clearInterval(right);
+					clearInterval(up);
+					clearInterval(down);
+					document.onkeydown=null;
+					end.style.display="block";
+				}
+			}
+			requestAnimationFrame(crash);
+		}());
+	</script>
+</body>
+</html>
